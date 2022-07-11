@@ -125,15 +125,10 @@ echo -e "
     "
 
 data=`echo $QUERY_STRING`
-echo -e "Los datos son $data<br/>"
 chain=`echo $data | awk -F\& '{print $1}' | awk -F= '{print $2}'`
 rule=`echo $data | awk -F\& '{print $2}' | awk -F= '{print $2}'`
-echo "$chain"
-echo "$rule"
 
 chainUpper=$(echo $chain | tr '[:lower:]' '[:upper:]')
-
-echo "$chainUpper"
 
 sudo iptables -D $chainUpper $rule
 
