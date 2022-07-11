@@ -1,0 +1,2 @@
+# ASO Practica Fase 2
+Per instal·lar el software, només fa falta descarregar-se el fitxer Install.sh i executar-lo amb la comanda bash Install.sh. Aquest ja instal·la els Kernel Headers i fa totes les operacions necessaries per tal que funcioni la pràctica de manera correcta. Descarrega el projecte del nostre repositori públic i el mou a la carpeta /usr/lib/cgi-bin per tal de poder-ho executar bé.
