@@ -124,7 +124,6 @@ echo -e "
     <body>
     "
 dades=`echo $QUERY_STRING`
-echo -e "Los datos son $dades<br/>"
 
 weekday=`echo $dades | awk -F\& '{print $1}' | awk -F= '{print $2}'`
 month=`echo $dades | awk -F\& '{print $2}' | awk -F= '{print $2}'`
@@ -133,12 +132,6 @@ hour=`echo $dades | awk -F\& '{print $4}' | awk -F= '{print $2}'`
 minute=`echo $dades | awk -F\& '{print $5}' | awk -F= '{print $2}'`
 command=`echo $dades | awk -F\& '{print $6}' | awk -F= '{print $2}'`
 
-echo -e " $weekday <br/>"
-echo -e " $month <br/>"
-echo -e " $monthday <br/>"
-echo -e " $hour <br/>"
-echo -e " $minute <br/>"
-echo -e " $command <br/>"
 
 #weekday
 if [ -z "$weekday" ];
@@ -229,22 +222,8 @@ fi
 
 x="$command"
 x="$(echo $x | sed 's|%2F|/|g')"
-echo "$x </br>"
 
-echo "$minute $hour $monthday $month $weekday pi $x >/dev/null 2>&1"
-
-sudo crontab -l > cron_bkp
-echo "$cron_bkp </br>"
 sudo echo "$minute $hour $monthday $month $weekday $x" >> /home/pi/crontabs
-
-# TESTEO
-# Ubicacion donde se guardan los ficheros de txt de los cron -> /var/spool/cron/crontabs/
-#cat /var/spool/cron/crontabs/pi
-
-# La idea es guardarlo directamente ahí, tal cual
-
-#sudo crontab cron_bkp
-#sudo rm cron_bkp
 
 echo -e "
         <div>
