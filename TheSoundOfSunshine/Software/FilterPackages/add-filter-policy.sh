@@ -124,7 +124,6 @@ echo -e "
     <body>
     "
         data=`echo $QUERY_STRING`
-        echo "Los datos son $data<br/>"
 
         type=`echo $data | awk -F\& '{print $1}' | awk -F= '{print $2}'`
         action=`echo $data | awk -F\& '{print $2}' | awk -F= '{print $2}'`
@@ -134,15 +133,7 @@ echo -e "
         sourceport=`echo $data | awk -F\& '{print $6}' | awk -F= '{print $2}'`
         destinationport=`echo $data | awk -F\& '{print $7}' | awk -F= '{print $2}'`
 
-        echo " $type <br/>"
-        echo " $action <br/>"
-        echo " $sourceaddress <br/>"
-        echo " $destinationaddress <br/>"
-        echo " $protocol <br/>"
-        echo " $sourceport <br/>"
-        echo " $destinationport <br/>"
-
-
+        
 #type
 if [ -z "$type" ];
 then
@@ -215,16 +206,6 @@ else
         fi
 
         # WE ADD THE RULE
-        echo " $typecondition <br/>"
-        echo " $actioncondition <br/>"
-        echo " $sourceaddressCondition <br/>"
-        echo " $destinationaddressCondition <br/>"
-        echo " $protocolCondition <br/>"
-        echo " $sourceportCondition <br/>"
-        echo " $destinationportCondition <br/>"
-
-        echo "iptables -A$typecondition$sourceaddressCondition$destinationaddressCondition$protocolCondition$sourceportCondition$destinationportCondition$actioncondition"
-
         $(sudo iptables -A$typecondition$sourceaddressCondition$destinationaddressCondition$protocolCondition$sourceportCondition$destinationportCondition$actioncondition)
         echo -e "
         
