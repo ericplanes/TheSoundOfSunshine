@@ -20,11 +20,6 @@ git clone https://github.com/ericplanes/TheSoundOfSunshine.git $HOME/Downloads/T
 sudo cp -r $HOME/Downloads/TheSoundOfSunshine /usr/lib/cgi-bin
 sudo chmod -R 777 /usr/lib/cgi-bin
 
-#Installs iptable per la ip del server
-sudo apt-get install iptables
-
-#Installs mpg123 per la música
-sudo apt-get install mpg123
 
 #Creem el fitxer on printarem tots els logs del sistema
 touch $HOME/Downloads/system_logs.txt
@@ -34,6 +29,13 @@ sudo chmod 777 $HOME/Downloads/system_logs.txt
 touch $HOME/Downloads/cur_song.txt
 sudo chmod 777 $HOME/Downloads/cur_song.txt
 echo "0" > $HOME/Downloads/cur_song.txt
+
+#Installs iptable per poder treballar amb els filtratges
+sudo apt-get install iptables
+
+
+#Installs mpg123 per la música
+sudo apt-get install mpg123
 
 touch $HOME/Downloads/list_songs.txt
 sudo chmod 777 $HOME/Downloads/list_songs.txt
