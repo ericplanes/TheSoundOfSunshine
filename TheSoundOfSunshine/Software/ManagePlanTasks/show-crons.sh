@@ -138,10 +138,6 @@ echo -e "
             
             $(sudo logger -p local0.info "Crons have been displayed") >> /var/log/syslog    
 
-    # TESTEO
-    # Sabiendo que los ficheros cron se encuentran en /var/spool/cron/crontabs/
-    # entonces cogemos y hacemos un cat del fichero en concreto y printamos linea a linea
-
     echo -e "
      <div class="main-container">
 
